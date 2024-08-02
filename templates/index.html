@@ -7,6 +7,55 @@
             color: red; /* Change the color to red when active */
         }
     </style>
+
+        <!--==============================
+    Sidemenu
+    ============================== -->
+    <div class="sidemenu-wrapper d-none d-lg-block  ">
+        <div class="sidemenu-content">
+            <button class="closeButton border-theme text-theme bg-theme-hover sideMenuCls"><i class="far fa-times"></i></button>
+            <div class="widget widget_shopping_cart">
+                <h3 class="widget_title">Shopping cart</h3>
+                <div class="widget_shopping_cart_content">
+                    <ul class="cart_list ">
+                        {% for sm in side_menu %}
+                            <li class="mini_cart_item">
+                                <a href=""><img src="{{ sm.img.url }}" alt="Cart Image">{{ sm.name }}</a>
+                                <span class="quantity">{{ sm.quantity }} ×
+                                    <span class="amount">
+                                        <span>$</span>{{ sm.price }}
+                                    </span>
+                                </span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <p class="total">
+                        <strong>Subtotal:</strong>
+                        <span class="amount">
+                            <span>$</span>{{ total_price }}
+                        </span>
+                    </p>
+                    <p class="buttons">
+                        <a href="mycart" class="vs-btn">View cart</a>
+                        <a href="" class="vs-btn">Checkout</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--==============================
+    Popup Search Box
+    ============================== -->
+    <div class="popup-search-box d-none d-lg-block  ">
+        <button class="searchClose border-theme text-theme"><i class="fal fa-times"></i></button>
+        <form action="#">
+            <input type="text" class="border-theme" placeholder="What are you looking for">
+            <button type="submit"><i class="fal fa-search"></i></button>
+        </form>
+    </div>
+
+
+
     <!--==============================
         Header Area
     ==============================-->
@@ -27,7 +76,7 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col col-lg-auto">
                         <div class="header-logo">
-                            <a href="index.html"><img src="{% static 'assets/img/logo.svg' %}" alt="Foodano"></a>
+                            <a href="{% url 'index' %}"><img src="{% static 'assets/img/logo.svg' %}" alt="Foodano"></a>
                         </div>
                     </div>
                     <div class="col-auto">
@@ -73,10 +122,10 @@
                     <div class="col-auto d-none d-sm-block">
                         <div class="header-buttons">
                             <button type="button" class="searchBoxTggler"><i class="far fa-search"></i></button>
-                            <a href="wishlist.html"><i class="fal fa-heart"></i></a>
-                            <button class="sideMenuToggler has-badge" type="button"><i class="fal fa-shopping-cart"></i><span class="badge">0</span></button>
+                            <a href="{% url 'wishlist' %}"><i class="fal fa-heart"></i></a>
+                            <button class="sideMenuToggler has-badge" type="button"><i class="fal fa-shopping-cart"></i><span class="badge">{{ total_items }}</span></button>
                             {% if request.user.is_authenticated%}
-                            <a href="#">{{request.user.username}}</a>
+                            <a href="{% url 'log_out' %}">{{request.user.username}}</a>
                             {% endif %}
                         </div>
                         
@@ -200,10 +249,10 @@
                                     </div>
                                     <div class="actions-btn">
                                         <a href="{{ feat.img.url }}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                        <a href="wishlist.html" class="icon-btn heart-btn" onclick="toggleHeart(this); return false;">
+                                        <a href="{% url 'wishlist' %}" class="icon-btn heart-btn" onclick="toggleHeart(this); return false;">
                                             <i class="fal fa-heart"></i>
                                         </a>
-                                        <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
+                                        <a href="{% url 'mycart' %}" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
                                     </div>
                                     <div class="product-content">
                                         <div class="product-rating-box">
@@ -215,7 +264,7 @@
                                         <h4 class="product-title">
                                             <a href="shop-details.html">{{ feat.name }}</a>
                                         </h4>
-                                        <span class="price"><strong>{{ feat.price }}</strong></span>
+                                        <span class="price"><strong>${{ feat.price }}</strong></span>
                                     </div>
                                 </div>
                             </div>
@@ -348,25 +397,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="widget widget_nav_menu  footer-widget">
-                            <h3 class="widget_title">Useful Links</h3>
-                            <div class="menu-all-pages-container footer-links">
-                                <ul class="menu">
-                                    <li><a href="#">Farm & Family</a></li>
-                                    <li><a href="#">Our Butchery</a></li>
-                                    <li><a href="#">Farm Shops</a></li>
-                                    <li><a href="#">Dartmoor Inn</a></li>
-                                    <li><a href="#">Market Garden</a></li>
-                                    <li><a href="#">Farm & Family</a></li>
-                                    <li><a href="#">Our Butchery</a></li>
-                                    <li><a href="#">Farm Shops</a></li>
-                                    <li><a href="#">Dartmoor Inn</a></li>
-                                    <li><a href="#">Market Garden</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-lg-4">
                         <div class="widget footer-widget">
                             <h3 class="widget_title">Instagram Photos</h3>
@@ -385,11 +415,6 @@
         <div class="copyright-area" data-bg-src="{% static 'assets/img/shape/footer-5-2.png' %}">
             <div class="container">
                 <div class="row justify-content-between align-items-center">
-                    <div class="col-lg-auto text-center text-lg-start">
-                        <div class="copyright">
-                            <p class="mb-0 link-inherit">Copyright &copy; 2022 <a href="index.html">Foodano</a> - All Rights Reserved by <a href="https://themeforest.net/user/vecuro_themes">Vecuro</a></p>
-                        </div>
-                    </div>
                     <div class="col-auto d-none d-lg-block">
                         <div class="copyright-social">
                             <a href="#"><i class="fab fa-facebook-f"></i>Facebook</a>

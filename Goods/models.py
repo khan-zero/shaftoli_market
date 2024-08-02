@@ -11,6 +11,12 @@ class Banner(models.Model):
     def __str__(self):
         return self.title
 
+class SideMenu(models.Model):
+    name = models.CharField(max_length=255)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity = models.IntegerField()
+    img = models.ImageField(upload_to="media/side_menu")
+
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
@@ -117,6 +123,7 @@ class Wishlist(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
+
 class RecentArticles(models.Model):
     posted_by = models.CharField(max_length=255)
     comments = models.IntegerField()
@@ -125,3 +132,18 @@ class RecentArticles(models.Model):
     img = models.ImageField(upload_to='media/RecntArticles')
     title = models.CharField(max_length=255)
     body = models.TextField()
+
+
+
+
+#info page:
+class FooterBottom(models.Model):
+    call_center = models.CharField(max_length=255)
+    location = models.CharField(max_length=255)
+    title = models.CharField(max_length=255)
+    facebook_link = models.URLField(max_length=255)
+    twitter_link = models.URLField(max_length=255)
+    linkedin_link = models.URLField(max_length=255)
+
+class FooterBottomImg(models.Model):
+    img = models.ImageField(upload_to='media/footer_bottom')

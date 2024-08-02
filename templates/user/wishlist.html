@@ -12,9 +12,6 @@
     <div class="wishlist-container">
         {% for wish in wishlist %}
         <div class="wishlist-item">
-            <div class="product-img">
-                <img src="{{ wish.product.image.url }}" alt="{{ wish.product.name }} Image">
-            </div>
             <div class="product-details">
                 <div class="product-title">{{ wish.product.name }}</div>
                 <div class="product-price">${{ wish.product.price }}</div>

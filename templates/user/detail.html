@@ -22,9 +22,6 @@
                         <a class="nav-link" href="{% url 'index' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Products</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
@@ -58,15 +55,15 @@
                     {% for pro in cartpro %}
                     <tr>
                         <td>
-                            <a href="#"><img width="91" height="91" src="{% static 'assets/img/cart/cat-img-1.png' %}" alt="Image" class="img-fluid"></a>
+                            <a href="#"><img width="91" height="91" src="{% static 'assets/img/cart/cart.png' %}" alt="Image" class="img-fluid"></a>
                         </td>
                         <td>{{ pro.product.name }}</td>
-                        <td>${{ pro.product.price }}</td>
+                        <td>{{ pro.product.price }}</td>
                         <td>
                             <form action="{% url 'substract' pro.id %}" method="POST" class="form-inline">
                                 {% csrf_token %}
                                 <input type="number" value="{{ pro.quantity }}" name="quantity" min="0" class="form-control mr-2">
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-primary">Qorbobo</button>
                             </form>
                         </td>
                         <td>${{ pro.total_price }}</td>
@@ -79,38 +76,10 @@
             </table>
         </div>
 
-        <!-- Order Form -->
-        <div class="card mt-4">
-            <div class="card-header">
-                <h3>Order Details</h3>
-            </div>
-            <div class="card-body">
-                <form action="{% url 'createOrder' cart.id %}" method="post">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <input type="text" name="full_name" placeholder="Full Name" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Email" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="phone" placeholder="Phone" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="address" placeholder="Address" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-success btn-block">Place Order</button>
-                </form>
-            </div>
-        </div>
+
     </div>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3 mt-4">
-        <div class="container">
-            <p class="mb-0">© 2024 Shop. All rights reserved.</p>
-        </div>
-    </footer>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

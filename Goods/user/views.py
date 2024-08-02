@@ -1,7 +1,8 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from Goods import models
 
-
+@login_required(login_url='login')
 def myCart(request):
     cart = models.Cart.objects.get(author=request.user, is_active=True)
     cartProduct = models.CartProduct.objects.filter(cart= cart)
@@ -10,7 +11,7 @@ def myCart(request):
     context['cartpro']=cartProduct
     return render(request, 'user/detail.html', context)
 
-
+@login_required(login_url='login')
 def addProductToCart(request, id):
     product_id = id
     quantity = int(request.POST['quantity'])  # Convert quantity to integer
@@ -32,25 +33,25 @@ def addProductToCart(request, id):
     return redirect('mycart')
 
 
-
+@login_required(login_url='login')
 def substruct(request, id):
     code = id
     quantity = int(request.POST['quantity'])
     product_cart = models.CartProduct.objects.get(id=code)
     product_cart.quantity = quantity
     product_cart.save()
-    if not product_cart.quantity:
-        product_cart.delete()
+    if quantity and product_cart.product.price:
+        product_cart.total_price = quantity * float(product_cart.product.price)
+        product_cart.save()
     return redirect('mycart')
 
-
-
+@login_required(login_url='login')
 def deleteProductCart(request, id):
     product_cart = models.CartProduct.objects.get(id=id)
     product_cart.delete()
     return redirect('mycart')
 
-
+@login_required(login_url='login')
 def CreateOrder(request, id):
     print('boshi')
     cart = models.Cart.objects.get(id=id)
@@ -82,7 +83,7 @@ def CreateOrder(request, id):
         cart.save()
         return render(request, 'user/order.html')
     return redirect('mycart')
-
+@login_required(login_url='login')
 def wishlist(request):
     wish_list = models.Wishlist.objects.filter(user=request.user)
     context = {}

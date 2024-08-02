@@ -5,6 +5,13 @@ from django.contrib.auth.models import User
 
 
 def register_user(request):
+    users = User.objects.all()
+    username = request.POST.get('username', None)
+
+    if username not in users:
+        text = "this username is already taken"
+        return render(request, 'error.html', {'message': text})
+
     if request.method == 'POST':
         User.objects.create_user(
             username = request.POST['username'],

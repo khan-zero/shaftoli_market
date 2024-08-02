@@ -96,58 +96,6 @@
     <!--==============================
         Header Top
     ==============================-->
-    <div class="header-top-wrapper bg-black pb-2 pt-10 z-index-step1 d-none d-lg-block">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-sm-6 col-md-4 col-lg-4 d-none d-sm-block">
-                    <div class="head-top-links text-body2">
-                        <span class="icon-btn"><i class="fal fa-pennant"></i></span>
-                        <ul>
-                            <li>
-                                <!-- Dropdown -->
-                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Language
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
-                                    <li><a href="#">German</a></li>
-                                    <li><a href="#">French</a></li>
-                                    <li><a href="#">Italian</a></li>
-                                    <li><a href="#">Latvian</a></li>
-                                    <li><a href="#">Spanish</a></li>
-                                    <li><a href="#">Greek</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <!-- Dropdown -->
-                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Currency
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
-                                    <li><a href="#">Canadian Dollar</a></li>
-                                    <li><a href="#">Swiss Franc</a></li>
-                                    <li><a href="#">Chinese Yuan</a></li>
-                                    <li><a href="#">Australian Dollar</a></li>
-                                    <li><a href="#">Swedish Krona</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col col-md-5 col-lg-4 text-center">
-                    <p class="text-body2 mb-0 fs-xs fw-semibold font-theme d-none d-md-inline-block"><span class="text-theme">Free exress</span> international delevery + Easy returens</p>
-                </div>
-                <div class="col-sm-5 col-md-3 col-lg-4 text-center text-sm-end">
-                    <div class="social-header fs-xs">
-                        <span class="text-body2 fs-xs fw-semibold font-theme me-2">Social Network</span>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fal fa-basketball-ball"></i></a>
-                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!--========================
     Sticky Header
 ========================-->
@@ -248,7 +196,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="contact.html">Log out</a>
+                                <a href="contact ">Log out</a>
                             </li>
                         </ul>
                     </nav>
@@ -372,95 +320,29 @@
                     <div class="col-lg-6 col-xl-7">
                         <nav class="main-menu menu-style1 mobile-menu-active menu-style2">
                             <ul>
-                                <li class="menu-item-has-children">
-                                    <a href="index.html">Home</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="index.html">Home Style 1</a></li>
-                                        <li><a href="index-2.html">Home Style 2</a></li>
-                                        <li><a href="index-3.html">Home Style 3</a></li>
-                                        <li><a href="index-4.html">Home Style 4</a></li>
-                                        <li><a href="index-5.html">Home Style 5</a></li>
-                                        <li><a href="index-6.html">Home Style 6</a></li>
-                                        <li><a href="index-7.html">Home Style 7</a></li>
-                                        <li><a href="index-8.html">Home Style 8</a></li>
-                                    </ul>
-                                </li>
+
                                 <li class="menu-item-has-children">
                                     <a href="shop.html">Shop</a>
                                     <ul class="sub-menu">
-                                        <li><a href="shop.html">Shop</a></li>
-                                        <li><a href="shop-list.html">Shop List</a></li>
-                                        <li><a href="shop-details.html">Shop Details</a></li>
-                                        <li><a href="cart.html">Shopping Cart</a></li>
-                                        <li><a href="checkout.html">Check Out</a></li>
-                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                        <li><a href="login-register.html">Login & Register</a></li>
+
+                                        <li><a href="{% url 'mycart'  %}">MYCart</a></li>
+
+
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <a href="blog.html">Blog</a>
                                     <ul class="sub-menu">
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="blog-list.html">Blog List</a></li>
-                                        <li><a href="blog-grid.html">Blog Grid</a></li>
-                                        <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
-                                        <li><a href="blog-masonry.html">Blog Masonry</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                    </ul>
-                                </li>
-                                <li class="mega-menu-wrap menu-item-has-children">
-                                    <a href="#">Pages</a>
-                                    <ul class="mega-menu">
-                                        <li><a href="shop.html">Pagelist 1</a>
-                                            <ul>
-                                                <li><a href="index.html">Home Style 1</a></li>
-                                                <li><a href="index-2.html">Home Style 2</a></li>
-                                                <li><a href="index-3.html">Home Style 3</a></li>
-                                                <li><a href="index-4.html">Home Style 4</a></li>
-                                                <li><a href="index-5.html">Home Style 5</a></li>
-                                                <li><a href="index-6.html">Home Style 6</a></li>
-                                                <li><a href="index-7.html">Home Style 7</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Pagelist 2</a>
-                                            <ul>
-                                                <li><a href="index-8.html">Home Style 8</a></li>
-                                                <li><a href="about.html">About</a></li>
-                                                <li><a href="service.html">Services</a></li>
-                                                <li><a href="team.html">Team</a></li>
-                                                <li><a href="faq.html">FAQ Page</a></li>
-                                                <li><a href="contact.html">Contact Us</a></li>
-                                                <li><a href="contact.html">log out</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Pagelist 3</a>
-                                            <ul>
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="blog-list.html">Blog List</a></li>
-                                                <li><a href="blog-grid.html">Blog Grid</a></li>
-                                                <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
-                                                <li><a href="blog-masonry.html">Blog Masonry</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
-                                                <li><a href="error.html">Error Page</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Pagelist 4</a>
-                                            <ul>
-                                                <li><a href="shop.html">Shop</a></li>
-                                                <li><a href="shop-list.html">Shop List</a></li>
-                                                <li><a href="shop-details.html">Shop Details</a></li>
-                                                <li><a href="cart.html">Shopping Cart</a></li>
-                                                <li><a href="checkout.html">Check Out</a></li>
-                                                <li><a href="wishlist.html">Wishlist</a></li>
-                                                <li><a href="login-register.html">Login / Register</a></li>
-                                            </ul>
-                                        </li>
+
+                                        <li><a href="{% url 'wishlist'  %}">Wishlist</a></li>
+
                                     </ul>
                                 </li>
                                 <li>
                                     <a href="contact.html">Contact Us</a>
                                 </li>
-                                <li><a href="contact.html">log out</a></li>
+
+
                             </ul>
                         </nav>
                     </div>
@@ -478,7 +360,7 @@
     <!--==============================
     Breadcumb
 ============================== -->
-    <div class="breadcumb-wrapper breadcumb-layout1 bg-fluid pt-200 pb-200" data-bg-src="{% static 'assets/img/breadcumb/breadcumb-img-1.jpg' %}">
+    <div class="breadcumb-wrapper breadcumb-layout1 bg-fluid pt-200 pb-200" data-bg-src="{% static 'assets/img/windows7.jpg' %}">
         <div class="container">
             <div class="breadcumb-content text-center">
                 <h1 class="breadcumb-title">Login & Register</h1>
@@ -524,6 +406,9 @@
                                                         <p class="form-group"><input name="username" class="form-control" type="text" placeholder="User Name"></p>
                                                         <p class="form-group"><input class="form-control" name="password" type="password" placeholder="Password"></p>
                                                         <div>
+                                                            {% if message %}
+                                                                {{ message }}
+                                                            {% endif %}
                                                             <p>Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <a href="#">privacy policy</a>.</p>
                                                         </div>
                                                         <p class="form-group mt-40"><button type="submit" class="vs-btn">Register</button></p>
@@ -549,7 +434,7 @@
     ==============================-->
         <section class="vs-newsletter-wrpper   ">
             <div class="container">
-                <div class="inner-wrap1 bg-fluid px-70 py-70" data-bg-src="{% static 'assets/img/bg/newsletter-bg-1-1.png' %}">
+                <div class="inner-wrap1 bg-fluid px-70 py-70" data-bg-src="{% static 'assets/img/windows7.jpeg' %}">
                     <div class="row align-items-center justify-content-center">
                         <div class="col-xl-6">
                             <div class="form-title mb-30 mb-xl-0 text-center text-xl-start">
@@ -624,9 +509,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="copyright text-center pb-35">
-                    <p class="mb-0 link-inherit">Copyright &copy; 2022 <a href="index.html">Foodano</a> - All Rights Reserved by <a href="https://themeforest.net/user/vecuro_themes">Vecuro</a></p>
                 </div>
             </div>
         </footer>
